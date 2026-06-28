@@ -1,0 +1,13 @@
+[Unit]
+Description=Recieve DBus notifications from remote machine
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/home/<user>/.local/bin/ichjwasbsbn-listener.py
+Restart=on-failure
+RestartSec=2
+EnvironmentFile=/home/<user>/.config/ichjwasbsbn.token
+
+[Install]
+WantedBy=default.target
